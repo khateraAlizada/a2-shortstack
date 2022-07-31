@@ -6,11 +6,7 @@ const http = require( 'http' ),
       dir  = 'public/',
       port = 3000
 
-const appdata = [
-  { 'model': 'toyota', 'year': 1999, 'mpg': 23 },
-  { 'model': 'honda', 'year': 2004, 'mpg': 30 },
-  { 'model': 'ford', 'year': 1987, 'mpg': 14} 
-]
+const appdata = []
 
 const server = http.createServer( function( request,response ) {
   if( request.method === 'GET' ) {
@@ -38,12 +34,29 @@ const handlePost = function( request, response ) {
   })
 
   request.on( 'end', function() {
-    console.log( JSON.parse( dataString ) )
-
-    // ... do something with the data here!!!
+    if (dataString.startsWith('d')){
+      const index = parseInt(dataString.slice(1))
+      appdata.splice(index, 1)
+    } else if (dataString.startsWith('e')){
+      const index = parseInt(dataString.slice(1, dataString.indexOf(','))),
+        json = JSON.parse(dataString.slice(dataString.indexOf(',') + 1)),
+        curItem = appdata [index]
+      curItem.task = json.task
+      curItem.time = json.time
+      curItem.date = json.date
+      curItem.urgent = urgency(json.time, json,date)
+    } else if (dataString.startsWith('c')){
+      const index = parseInt(dataString.slice(1)),
+        curItem = appdata[index]
+      curItem.done = curItem.done === 'true' ? 'false' : 'true'
+    } else{
+      const json = JSON.parse(dataString)
+      json.urgent = urgency(json.time, json.date)
+      appdata.push(json)
+    }
 
     response.writeHead( 200, "OK", {'Content-Type': 'text/plain' })
-    response.end()
+    response.end(JSON.stringify(appdata))
   })
 }
 
@@ -69,4 +82,29 @@ const sendFile = function( response, filename ) {
    })
 }
 
+function urgency(t, d){
+  let urgent = 0; // 0 is least urgent, 5 most urgent
+  if (d === '' && t !== ''){
+    urgent = 5
+
+  } else {
+    let cur = new Date(),
+    dd = cur.getDate(),
+    mm = cur.getMonth() + 1,
+    yy = cur.getFullYear(),
+    today = new Date(mm + '/' + dd + '/' + yy),
+    temp = Date.parse(d), // d.slice(5, 7) + '/' + d.slice(8,10) + '/' + d.slice(0,4),
+    tempDate = new Date(temp)
+    //console.log('today ' + today + "temp " + tempDate)
+
+    let difference = Math.ceil((tempDate.getTime() - today.getTime()) / (1000 * 60 * 24))
+    //console.log("dif" + (tempDate.getTime() - today.getTime()))
+      if (difference === 1) urgent = 5
+      else if (difference <= 3 && difference > 1) urgent = 4
+      else if (difference <= 7) urgent = 3
+      else if (difference <= 14) urgent =2
+      else if (difference <= 30) urgent = 1
+   }
+   return urgent
+}
 server.listen( process.env.PORT || port )
