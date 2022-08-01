@@ -110,11 +110,11 @@
       orderInput = toDoItem.querySelector('.orderItem'),
       timeInput = toDoItem.querySelector('.timeItem'),
       dateInput = toDoItem.querySelector('.dateItem'),
-      editB = toDoItem.querySelector('.editB'),
+      //editB = toDoItem.querySelector('.editB'),
       deleteB = toDoItem.querySelector('.deleteB'),
       saveB = toDoItem.querySelector('.saveB')
 
-    editB.style.display = 'none'
+    //editB.style.display = 'none'
     deleteB.style.display = 'none'
     saveB.style.display = 'table-cell'
 
@@ -138,11 +138,11 @@
     const orderInput = toDoItem.querySelector('.orderItem'),
       timeInput = toDoItem.querySelector('.timeItem'),
       dateInput = toDoItem.querySelector('.dateItem'),
-      editB = toDoItem.querySelector('.editB'),
+      //editB = toDoItem.querySelector('.editB'),
       deleteB = toDoItem.querySelector('.deleteB'),
       saveB = toDoItem.querySelector('.saveB')
 
-      editB.style.display = 'table-cell'
+      //editB.style.display = 'table-cell'
       deleteB.style.display = 'table-cell'
       saveB.style.display = 'none'
 
@@ -226,10 +226,11 @@ function refresh(json){
 
       //making buttons
       const deleteB = document.createElement('button'),
+          saveB = document.createElement('button')
         //editB = document.createElement('button'),
-        saveB = document.createElement('button')
+        
 
-      editB.className = 'editB'
+      //editB.className = 'editB'
       deleteB.className = 'deleteB'
       saveB.className = 'saveB'
 
@@ -238,18 +239,18 @@ function refresh(json){
       saveB.textContent = 'save'
 
       deleteB.onclick = del
-      editB.onclick = editOrder
+      //editB.onclick = editOrder
       saveB.onclick = saveOrder
 
       saveB.style.display = 'none'
 
       if (done === 'true'){
         deleteB.style.display = 'none'
-        editB.style.display = 'none'
+        //editB.style.display = 'none'
 
       } else {
         deleteB.style.display = 'table-cell'
-        editB.style.display = 'table-cell'
+        //editB.style.display = 'table-cell'
       }
 
       // append to-do item
@@ -257,7 +258,7 @@ function refresh(json){
       toDoItem.appendChild(urg)
       toDoItem.appendChild(orderEdit)
       toDoItem.appendChild(deleteB)
-      toDoItem.appendChild(editB)
+      //toDoItem.appendChild(editB)
       toDoItem.appendChild(saveB)
       toDoItem.appendChild(timeEdit)
       toDoItem.appendChild(dateEdit)
