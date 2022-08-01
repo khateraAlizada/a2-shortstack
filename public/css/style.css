@@ -138,6 +138,7 @@ li>input {
 }
 
 .orderItem:read-only,
+.customerItem:read-only,
 .timeItem:read-only,
 .dateItem:read-only {
     border: 0;
