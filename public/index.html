@@ -104,17 +104,17 @@
     })
     return false
   }
-/**
+
   function editOrder(e){
     const toDoItem = e.target.parentNode,
       orderInput = toDoItem.querySelector('.orderItem'),
       timeInput = toDoItem.querySelector('.timeItem'),
       dateInput = toDoItem.querySelector('.dateItem'),
-      editB = toDoItem.querySelector('.editB'),
+      //editB = toDoItem.querySelector('.editB'),
       deleteB = toDoItem.querySelector('.deleteB'),
       saveB = toDoItem.querySelector('.saveB')
 
-    editB.style.display = 'none'
+    //editB.style.display = 'none'
     deleteB.style.display = 'none'
     saveB.style.display = 'table-cell'
 
@@ -125,7 +125,7 @@
     return;
 
   }
-  **/
+  
 
   function saveOrder(e){
     //console.log('button clicked')
@@ -225,7 +225,7 @@ function refresh(json){
       urg.innerHTML = str
 
       //making buttons
-      const editB = document.createElement('button'),
+      const //editB = document.createElement('button'),
         deleteB = document.createElement('button'),
         saveB = document.createElement('button')
 
