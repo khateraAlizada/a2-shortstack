@@ -44,7 +44,6 @@
 
     const json = { 
       'order': orderInput.value,
-      
       'time': timeInput.value,
       'date': dateInput.value,
       'customer': customerInput.value,
@@ -52,7 +51,6 @@
       },
       body = JSON.stringify(json)
     orderInput.value = ''
-    
     timeInput.value = ''
     dateInput.value = ''
     customerInput.value = ''
@@ -115,7 +113,6 @@
   function editOrder(e){
     const toDoItem = e.target.parentNode,
       orderInput = toDoItem.querySelector('.orderItem'),
-      
       timeInput = toDoItem.querySelector('.timeItem'),
       dateInput = toDoItem.querySelector('.dateItem'),
       customerInput = toDoItem.querySelector('.customerItem'),
@@ -210,31 +207,26 @@ function refresh(json){
 
       }
       const orderEdit = document.createElement('input') //making info elements
-      
       const timeEdit = document.createElement('input')
       const dateEdit = document.createElement('input')
       const customerEdit = document.createElement('input')
 
       orderEdit.type = 'text'
-      
       timeEdit.type = 'time'
       dateEdit.type = 'date'
       customerEdit.type = 'text'
 
       orderEdit.value = order
-      
       timeEdit.value = time
       dateEdit.value = date
       customerEdit.value = customer
 
       orderEdit.readOnly = true;
-       
       timeEdit.readOnly = true;
       dateEdit.readOnly = true;
       customerEdit.readOnly = true;
 
       orderEdit.className = 'orderItem'
-      
       timeEdit.className = 'timeItem'
       dateEdit.className = 'dateItem'
       customerEdit.className = 'customerItem'
