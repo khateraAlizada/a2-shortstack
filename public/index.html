@@ -13,6 +13,7 @@
       <h1> Order list</h1>
       <form id='form' action="">
         <div id = 'inputs'>
+          <input type = 'text' id = 'customer' placeholder = "your name">
           <input type='text' id='order' placeholder="add an order">
           <input type ='time' id = 'time'>
           <input type ='date' id = 'date'>
@@ -32,6 +33,7 @@
     e.preventDefault()
 
     const orderInput = document.querySelector( '#order' ),
+          CustomerInput = document.querySelector('#customer'),
           timeInput = document.querySelector('#time'),
           dateInput = document.querySelector('#date')
     if (orderInput.value === ''){
@@ -41,12 +43,14 @@
 
     const json = { 
       'order': orderInput.value,
+      'customer': customerInput.value,
       'time': timeInput.value,
       'date': dateInput.value,
       'done': 'false'
       },
       body = JSON.stringify(json)
     orderInput.value = ''
+    customerInput.value = ''
     timeInput.value = ''
     dateInput.value = ''
 
@@ -108,6 +112,7 @@
   function editOrder(e){
     const toDoItem = e.target.parentNode,
       orderInput = toDoItem.querySelector('.orderItem'),
+      customerInput = toDoItem.querySelector('.customerItem'),
       timeInput = toDoItem.querySelector('.timeItem'),
       dateInput = toDoItem.querySelector('.dateItem'),
       //editB = toDoItem.querySelector('.editB'),
@@ -119,6 +124,7 @@
     saveB.style.display = 'table-cell'
 
     orderInput.readOnly = false;
+    customerInput.readOnly = false; 
     timeInput.readOnly = false;
     dateInput.readOnly = false;
 
@@ -136,6 +142,7 @@
     const idNum = toDoItem.slice(4)
 
     const orderInput = toDoItem.querySelector('.orderItem'),
+      customerInput = toDoItem.querySelector('.customerItem'),
       timeInput = toDoItem.querySelector('.timeItem'),
       dateInput = toDoItem.querySelector('.dateItem'),
       editB = toDoItem.querySelector('.editB'),
@@ -174,6 +181,7 @@ function refresh(json){
   if(Array.isArray(json)){
     json.forEach((input, index) => {
       const order = input.order,
+        customer = input.customer,
         time = input.time,
         date = input.date,
         done = input.done,
@@ -195,22 +203,27 @@ function refresh(json){
 
       }
       const orderEdit = document.createElement('input') //making info elements
+      const customerEdit = document.createElement('input')
       const timeEdit = document.createElement('input')
       const dateEdit = document.createElement('input')
 
       orderEdit.type = 'text'
+      customerEdit.type = 'text'
       timeEdit.type = 'time'
       dateEdit.type = 'date'
 
       orderEdit.value = order
+      customerEdit.value = customer
       timeEdit.value = time
       dateEdit.value = date
 
       orderEdit.readOnly = true;
+      customerEdit.readOnly = true; 
       timeEdit.readOnly = true;
       dateEdit.readOnly = true;
 
       orderEdit.className = 'orderItem'
+      customerEdit.className = 'customerItem'
       timeEdit.className = 'timeItem'
       dateEdit.className = 'dateItem'
 
@@ -260,6 +273,7 @@ function refresh(json){
       toDoItem.appendChild(deleteB)
       //toDoItem.appendChild(editB)
       toDoItem.appendChild(saveB)
+      toDoItem.appendChild(customerEdit)
       toDoItem.appendChild(timeEdit)
       toDoItem.appendChild(dateEdit)
 
