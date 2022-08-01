@@ -164,7 +164,7 @@
       return false
   }
 function refresh(json){
-  const toDoList = document.getElementById('doDoList')
+  const toDoList = document.getElementById('toDoList')
   //console.log(json)
 
   while(toDoList.firstChild){
@@ -218,7 +218,7 @@ function refresh(json){
       let str = ""
         //console.log(u)
       urg.className = 'urgItem'
-      for (let i = 0; i <u; i++){
+      for (let i = 0; i < u; i++){
         str += '!'
       }
       urg.innerHTML = str
