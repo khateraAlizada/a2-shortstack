@@ -42,6 +42,7 @@ const handlePost = function( request, response ) {
         json = JSON.parse(dataString.slice(dataString.indexOf(',') + 1)),
         curItem = appdata [index]
       curItem.order = json.order
+      curItem.customer = json.customer
       curItem.time = json.time
       curItem.date = json.date
       curItem.urgent = urgency(json.time, json.date)
