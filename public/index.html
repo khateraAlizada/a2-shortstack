@@ -14,7 +14,7 @@
       <form id='form' action="">
         <div id = 'inputs'>
           
-          <input type='text' id='order' placeholder="add an order">
+          <input type='text' id ='order' placeholder="add an order">
           <input type ='time' id = 'time'>
           <input type ='date' id = 'date'>
           <input type = 'text' id = 'customer' placeholder = "your name">
@@ -34,7 +34,6 @@
     e.preventDefault()
 
     const orderInput = document.querySelector( '#order' ),
-          
           timeInput = document.querySelector('#time'),
           dateInput = document.querySelector('#date'),
           CustomerInput = document.querySelector('#customer')
@@ -74,7 +73,7 @@
   }
   function del(e){
     const toDoItemID = e.target.parentNode.id 
-    const idNum = toDoItemID.slice(4)
+    const idNum = toDoItemID.slice(5)
     //console.log(idNum)
     const toDoItem = document.getElementById(toDoItemID)
     body = "delete" +idNum
@@ -98,7 +97,7 @@
 
   function checked(box){
     const toDoItemID = box.parentNode.id
-    const idNum = toDoItemID.slice(4)
+    const idNum = toDoItemID.slice(5)
     //console.log(idNum)
     const toDoItem = document.getElementById(toDoItemID)
     body = "c" + idNum
@@ -145,10 +144,9 @@
 
     const toDoItem = e.target.parentNode
     const toDoItemID = toDoItem.id
-    const idNum = toDoItem.slice(4)
+    const idNum = toDoItem.slice(5)
 
     const orderInput = toDoItem.querySelector('.orderItem'),
-      
       timeInput = toDoItem.querySelector('.timeItem'),
       dateInput = toDoItem.querySelector('.dateItem'),
       customerInput = toDoItem.querySelector('.customerItem'),
@@ -163,7 +161,6 @@
       json = {
 
         'order': orderInput.value,
-        
         'time': timeInput.value,
         'date': dateInput.value,
         'customer': customerInput.value,
@@ -191,11 +188,10 @@ function refresh(json){
   if(Array.isArray(json)){
     json.forEach((input, index) => {
       const order = input.order,
-        
         time = input.time,
         date = input.date,
-        done = input.done,
         customer = input.customer,
+        done = input.done,
         u = input.urget
       
       const toDoItem = document.createElement('li')
@@ -270,7 +266,6 @@ function refresh(json){
       deleteB.onclick = del
       //editB.onclick = editOrder
       saveB.onclick = saveOrder
-
       saveB.style.display = 'none'
 
       if (done === 'true'){
@@ -289,7 +284,6 @@ function refresh(json){
       toDoItem.appendChild(deleteB)
       //toDoItem.appendChild(editB)
       toDoItem.appendChild(saveB)
-      
       toDoItem.appendChild(timeEdit)
       toDoItem.appendChild(dateEdit)
       toDoItem.appendChild(customerEdit)

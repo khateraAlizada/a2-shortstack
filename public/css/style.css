@@ -138,9 +138,9 @@ li>input {
 }
 
 .orderItem:read-only,
-.customerItem:read-only,
+.dateItem:read-only,
 .timeItem:read-only,
-.dateItem:read-only {
+.customerItem:read-only {
     border: 0;
     background-color: var(--c-listBkgd); 
     background-color: var(--c-listBkgd);
