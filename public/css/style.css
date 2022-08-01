@@ -83,7 +83,7 @@ h1 {
 
 /** List Section **/
 
-#toDoList {
+#orderList {
     margin: 3rem auto;
     width: 70%;
     padding: 2rem;
@@ -132,7 +132,7 @@ li[done='true']>p {
     position: relative;
     float: right;
 }
-
+ 
 li>input {
     border: 0;
 }
