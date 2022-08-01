@@ -164,11 +164,11 @@
       return false
   }
 function refresh(json){
-  const toDoList = document.getElementById('toDoList')
+  const orderList = document.getElementById('orderList')
   //console.log(json)
 
-  while(toDoList.firstChild){
-    toDoList.removeChild(toDoList.firstChild)
+  while(orderList.firstChild){
+    orderList.removeChild(orderList.firstChild)
   }
   if(Array.isArray(json)){
     json.forEach((input, index) => {
@@ -262,7 +262,7 @@ function refresh(json){
       toDoItem.appendChild(dateEdit)
 
       //append to list
-      toDoList.appendChild(toDoItem)
+      orderList.appendChild(toDoItem)
     })
   }
 }
