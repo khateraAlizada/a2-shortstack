@@ -104,7 +104,7 @@
     })
     return false
   }
-
+/**
   function editOrder(e){
     const toDoItem = e.target.parentNode,
       orderInput = toDoItem.querySelector('.orderItem'),
@@ -125,6 +125,7 @@
     return;
 
   }
+  **/
 
   function saveOrder(e){
     //console.log('button clicked')
@@ -228,16 +229,16 @@ function refresh(json){
         deleteB = document.createElement('button'),
         saveB = document.createElement('button')
 
-      editB.className = 'editB'
+      //editB.className = 'editB'
       deleteB.className = 'deleteB'
       saveB.className = 'saveB'
 
-      editB.textContent = 'Edit'
+      //editB.textContent = 'Edit'
       deleteB.textContent = 'Delete'
       saveB.textContent = 'save'
 
       deleteB.onclick = del
-      editB.onclick = editOrder
+      //editB.onclick = editOrder
       saveB.onclick = saveOrder
 
       saveB.style.display = 'none'
@@ -254,7 +255,7 @@ function refresh(json){
       // append to-do item
       toDoItem.appendChild(check)
       toDoItem.appendChild(urg)
-      toDoItem.appendChild(orderEdit)
+      //toDoItem.appendChild(orderEdit)
       toDoItem.appendChild(deleteB)
       toDoItem.appendChild(editB)
       toDoItem.appendChild(saveB)
