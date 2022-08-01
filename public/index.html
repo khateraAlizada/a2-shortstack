@@ -10,10 +10,10 @@
   </head>
   <body>
     <div id = 'header'>
-      <h1> to-do list</h1>
+      <h1> Order list</h1>
       <form id='form' action="">
         <div id = 'inputs'>
-          <input type='text' id='task' placeholder="add a task">
+          <input type='text' id='order' placeholder="add an order">
           <input type ='time' id = 'time'>
           <input type ='date' id = 'date'>
           <button id ='addB'>+</button> 
@@ -21,7 +21,7 @@
         </div>
       </form>
     </div>
-    <div id = 'toDoList'>
+    <div id = 'orderList'>
 
     </div>
   </body>
@@ -31,22 +31,22 @@
     // prevent default form action from being carried out
     e.preventDefault()
 
-    const taskInput = document.querySelector( '#task' ),
+    const orderInput = document.querySelector( '#order' ),
           timeInput = document.querySelector('#time'),
           dateInput = document.querySelector('#date')
-    if (taskInput.value === ''){
-      window.alert('Please input a task!')
+    if (orderInput.value === ''){
+      window.alert('Please input an order!')
       return;
     }
 
     const json = { 
-      'task': taskInput.value,
+      'order': orderInput.value,
       'time': timeInput.value,
       'date': dateInput.value,
        'done': 'false'
       },
       body = JSON.stringify(json)
-    taskInput.value = ''
+    orderInput.value = ''
     timeInput.value = ''
     dateInput.value = ''
 
@@ -80,8 +80,8 @@
       //console.log(json)
       for (let i = parseInt(idNum) + 1; i <= json.length; i++){
         //console.log("current id: " i)
-        let curItem = document.getElementById("task" + i)
-        curItem.id = "task" + (i - 1)
+        let curItem = document.getElementById("order" + i)
+        curItem.id = "order" + (i - 1)
         //console.log("new id: " +curItem.id)
       }
     })
@@ -105,9 +105,9 @@
     return false
   }
 
-  function editTask(e){
+  function editOrder(e){
     const toDoItem = e.target.parentNode,
-      taskInput = toDoItem.querySelector('.taskItem'),
+      orderInput = toDoItem.querySelector('.orderItem'),
       timeInput = toDoItem.querySelector('.timeItem'),
       dateInput = toDoItem.querySelector('.dateItem'),
       editB = toDoItem.querySelector('.editB'),
@@ -118,7 +118,7 @@
     deleteB.style.display = 'none'
     saveB.style.display = 'table-cell'
 
-    taskInput.readOnly = false;
+    orderInput.readOnly = false;
     timeInput.readOnly = false;
     dateInput.readOnly = false;
 
@@ -126,7 +126,7 @@
 
   }
 
-  function saveTask(e){
+  function saveOrder(e){
     //console.log('button clicked')
     e.preventDefault()
 
@@ -134,7 +134,7 @@
     const toDoItemID = toDoItem.id
     const idNum = toDoItem.slice(4)
 
-    const taskInput = toDoItem.querySelector('.taskItem'),
+    const orderInput = toDoItem.querySelector('.orderItem'),
       timeInput = toDoItem.querySelector('.timeItem'),
       dateInput = toDoItem.querySelector('.dateItem'),
       editB = toDoItem.querySelector('.editB'),
@@ -146,7 +146,7 @@
       saveB.style.display = 'none'
 
       json = {
-        'task': taskInput.value,
+        'order': orderInput.value,
         'time': timeInput.value,
         'date': dateInput.value,
         'done': 'false'
@@ -172,14 +172,14 @@ function refresh(json){
   }
   if(Array.isArray(json)){
     json.forEach((input, index) => {
-      const task = input.task,
+      const order = input.order,
         time = input.time,
         date = input.date,
         done = input.done,
         u = input.urget
       
       const toDoItem = document.createElement('li')
-      toDoItem.id = 'task' + index
+      toDoItem.id = 'order' + index
       toDoItem.className = 'toDoItem'
       toDoItem.setAttribute('done', done)
 
@@ -193,23 +193,23 @@ function refresh(json){
         check.checked = true;
 
       }
-      const taskEdit = document.createElement('input') //making info elements
+      const orderEdit = document.createElement('input') //making info elements
       const timeEdit = document.createElement('input')
       const dateEdit = document.createElement('input')
 
-      taskEdit.type = 'text'
+      orderEdit.type = 'text'
       timeEdit.type = 'time'
       dateEdit.type = 'date'
 
-      taskEdit.value = task
+      orderEdit.value = order
       timeEdit.value = time
       dateEdit.value = date
 
-      taskEdit.readOnly = true;
+      orderEdit.readOnly = true;
       timeEdit.readOnly = true;
       dateEdit.readOnly = true;
 
-      taskEdit.className = 'taskItem'
+      orderEdit.className = 'orderItem'
       timeEdit.className = 'timeItem'
       dateEdit.className = 'dateItem'
 
@@ -237,8 +237,8 @@ function refresh(json){
       saveB.textContent = 'save'
 
       deleteB.onclick = del
-      editB.onclick = editTask
-      saveB.onclick = saveTask
+      editB.onclick = editOrder
+      saveB.onclick = saveOrder
 
       saveB.style.display = 'none'
 
@@ -254,7 +254,7 @@ function refresh(json){
       // append to-do item
       toDoItem.appendChild(check)
       toDoItem.appendChild(urg)
-      toDoItem.appendChild(taskEdit)
+      toDoItem.appendChild(orderEdit)
       toDoItem.appendChild(deleteB)
       toDoItem.appendChild(editB)
       toDoItem.appendChild(saveB)
