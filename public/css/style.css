@@ -117,7 +117,7 @@ li[done='true']>p {
     margin: none;
 }
 
-.taskItem{
+.orderItem{
     width: 35%;
 }
 
@@ -137,7 +137,7 @@ li>input {
     border: 0;
 }
 
-.taskItem:read-only,
+.orderItem:read-only,
 .timeItem:read-only,
 .dateItem:read-only {
     border: 0;

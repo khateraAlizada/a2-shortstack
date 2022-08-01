@@ -41,10 +41,10 @@ const handlePost = function( request, response ) {
       const index = parseInt(dataString.slice(1, dataString.indexOf(','))),
         json = JSON.parse(dataString.slice(dataString.indexOf(',') + 1)),
         curItem = appdata [index]
-      curItem.task = json.task
+      curItem.order = json.order
       curItem.time = json.time
       curItem.date = json.date
-      curItem.urgent = urgency(json.time, json,date)
+      curItem.urgent = urgency(json.time, json.date)
     } else if (dataString.startsWith('c')){
       const index = parseInt(dataString.slice(1)),
         curItem = appdata[index]
