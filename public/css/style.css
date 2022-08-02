@@ -82,7 +82,7 @@ h1 {
 }
 
 /** List Section **/
-/**
+
 #orderList {
     margin: 3rem auto;
     width: 70%;
@@ -91,7 +91,7 @@ h1 {
     border-radius: 0.5rem;
     box-shadow: 5px 8px var(--c-shadow);
 }
-**/
+
 li,
 p {
     list-style-type: none;
