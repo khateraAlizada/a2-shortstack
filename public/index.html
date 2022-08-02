@@ -71,7 +71,7 @@
   }
   function del(e){
     const toDoItemID = e.target.parentNode.id 
-    const idNum = toDoItemID.slice(4)
+    const idNum = toDoItemID.slice(5)
     //console.log(idNum)
     const toDoItem = document.getElementById(toDoItemID)
     body = "delete" +idNum
@@ -95,7 +95,7 @@
 
   function checked(box){
     const toDoItemID = box.parentNode.id
-    const idNum = toDoItemID.slice(4)
+    const idNum = toDoItemID.slice(5)
     //console.log(idNum)
     const toDoItem = document.getElementById(toDoItemID)
     body = "c" + idNum
@@ -141,7 +141,7 @@
 
     const toDoItem = e.target.parentNode
     const toDoItemID = toDoItem.id
-    const idNum = toDoItem.slice(4)
+    const idNum = toDoItem.slice(5)
 
     const orderInput = toDoItem.querySelector('.orderItem'),
       timeInput = toDoItem.querySelector('.timeItem'),
