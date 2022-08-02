@@ -158,7 +158,8 @@ li>input {
 
 li>button {
     /*position: relative; */
-    float: right;
+    /*float: right; */
+    position: static
 }
 
 .saveB {
