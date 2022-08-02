@@ -122,19 +122,19 @@ li[done='true']>p {
 }
 .customerItem{
     width: 15%;
-    position: relative;
+    /*position: relative;*/
     float:right;
 }
 
 .timeItem{
     width: 15%;
-    position: relative;
+    /*position: relative;*/
     float: right;
 }
 
 .dateItem {
     width: 15%;
-    position: relative;
+    /*position: relative;*/
     float: right;
 }
  
