@@ -127,13 +127,13 @@ li[done='true']>p {
 }
 
 .timeItem{
-    width: 20%;
+    width: 15%;
     position: relative;
     float: right;
 }
 
 .dateItem {
-    width: 20%;
+    width: 15%;
     position: relative;
     float: right;
 }
