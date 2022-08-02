@@ -118,7 +118,10 @@ li[done='true']>p {
 }
 
 .orderItem{
-    width: 35%;
+    width: 30%;
+}
+.customerItem{
+    width: 20%;
 }
 
 .timeItem{
@@ -138,9 +141,10 @@ li>input {
 }
 
 .orderItem:read-only,
+.customerItem:read-only
 .dateItem:read-only,
-.timeItem:read-only,
-.customerItem:read-only {
+.timeItem:read-only
+ {
     border: 0;
     background-color: var(--c-listBkgd); 
     background-color: var(--c-listBkgd);
