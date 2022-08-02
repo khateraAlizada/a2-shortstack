@@ -118,10 +118,12 @@ li[done='true']>p {
 }
 
 .orderItem{
-    width: 30%;
+    width: 20%;
 }
 .customerItem{
     width: 20%;
+    position: relative;
+    float:right;
 }
 
 .timeItem{
