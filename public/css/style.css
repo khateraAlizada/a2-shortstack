@@ -157,11 +157,12 @@ li>input {
 }
 
 li>button {
-    /*position: relative; */
+    position: relative; 
     float: right; 
-    position: static
+    
 }
-
+/*
 .saveB {
     width: 6.7rem; 
 }
+*/
