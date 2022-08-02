@@ -157,7 +157,7 @@ li>input {
 }
 
 li>button {
-    position: relative;
+    /*position: relative; */
     float: right;
 }
 
